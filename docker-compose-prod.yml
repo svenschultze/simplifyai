@@ -1,0 +1,8 @@
+version: '2'
+services:
+  myrob_frontend_prod:
+    build: 
+      context: .
+      dockerfile: Dockerfile-Production
+    ports:
+      - "80:80"
