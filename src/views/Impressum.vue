@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import Footer from '@/components/Footer'
+import Footer from '@/components/landingpage/Footer'
 
 export default {
     components: {

@@ -12,21 +12,21 @@
 </template>
 
 <script>
-import NavBar from "./navbar/NavBar.vue"
+import NavBar from "@/components/navbar/NavBar.vue"
 
-import FeedbackModal from "./modal/FeedbackModal.vue"
-import Notifier from "./notifier/Notifier.vue"
+import FeedbackModal from "@/components/modal/FeedbackModal.vue"
+import Notifier from "@/components/notifier/Notifier.vue"
 
-import Problem from "./views/problem/Problem.vue"
-import Data from "./views/data/Data.vue"
-import Preprocess from "./views/preprocess/Preprocess.vue"
-import Model from "./views/model/Model.vue"
-import Train from "./views/train/Train.vue"
-import Evaluate from "./views/evaluate/Evaluate.vue"
-import Test from "./views/upload/Upload.vue"
+import Problem from "@/components/views/problem/Problem.vue"
+import Data from "@/components/views/data/Data.vue"
+import Preprocess from "@/components/views/preprocess/Preprocess.vue"
+import Model from "@/components/views/model/Model.vue"
+import Train from "@/components/views/train/Train.vue"
+import Evaluate from "@/components/views/evaluate/Evaluate.vue"
+import Test from "@/components/views/upload/Upload.vue"
 
 export default {
-    name: "Main",
+    name: "App",
     components: {
         "nav-bar": NavBar,
         "problem-view": Problem,

@@ -21,11 +21,11 @@
 </template>
 
 <script>
-import HeroSection from '@/components/HeroSection'
-import About from '@/components/About'
-import Feedback from '@/components/Feedback'
-import Research from '@/components/Research'
-import Footer from '@/components/Footer'
+import HeroSection from '@/components/landingpage/HeroSection'
+import About from '@/components/landingpage/About'
+import Feedback from '@/components/landingpage/Feedback'
+import Research from '@/components/landingpage/Research'
+import Footer from '@/components/landingpage/Footer'
 
 export default {
     components: {
