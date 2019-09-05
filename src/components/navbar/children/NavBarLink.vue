@@ -1,8 +1,7 @@
-<template>
-  <button class="base" :class="{'mediumSize': viewport.width < 1200, 'smallSize': viewport.width < 1050}"  @click="$emit('activate')">
-      <h3><slot></slot></h3>
-      <viewport-listener v-model="viewport"/>
-  </button>
+<template lang="pug">
+v-btn(link text @click="$emit('activate')")
+    slot
+    viewport-listener(v-model="viewport")
 </template>
 
 <script>
@@ -49,16 +48,16 @@
         background: none;
         cursor: default;
     }
-    
+
     .mediumSize {
         font-size: 11px;
         width: 100px;
     }
-    
+
     .smallSize {
         width: auto !important;
     }
-    
+
     img {
         height: 15px;
     }

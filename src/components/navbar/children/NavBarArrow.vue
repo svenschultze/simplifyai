@@ -1,7 +1,5 @@
-<template>
-  <button class="base" @click="$emit('activate')">
-      <img class="right-arrow" src="@/assets/right-arrow.svg" />
-  </button>
+<template lang="pug">
+    v-btn(link text @click="$emit('activate')") >
 </template>
 
 <script>
@@ -31,7 +29,7 @@
     .base:focus {
         outline: none;
     }
-    
+
     .base:disabled {
         opacity: 0.5;
         background: none;

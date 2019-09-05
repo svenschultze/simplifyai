@@ -1,63 +1,50 @@
-<template>
-    <div class="base2">
-        <div class="container">
-            <p><slot></slot></p>
-            <button @click="$emit('closed')">START</button>
-        </div>
-    </div>
+<template lang="pug">
+    .base2
+        v-container
+            p
+                slot
+        v-btn(dark text x-large @click="$emit('closed')")
+            v-icon mdi-chevron-up
+            span START
+            v-icon mdi-chevron-up
 </template>
 
 <script>
-    export default {
-        name: 'Info',
-        model: {
-            event: 'closed'
-        }
+export default {
+    name: 'Info',
+    model: {
+        event: 'closed'
     }
+}
 </script>
 
-<style scoped>
-    .base2 {
-        width: 100%;
-        background-color: #278be4 !important;
-        color: #FFF;
-        position: fixed;
-        top: 50px;
-        z-index: 10;
-        box-shadow: 0 3px 20px #0004;
-    }
+<style scoped lang="scss">
+.base2 {
+    width: 100%;
+    background-color: rgb(68, 91, 224) !important;
+    color: #fff;
+    position: fixed;
+    top: 50px;
+    z-index: 10;
+    box-shadow: 0 3px 20px #0004;
+}
 
-    p {
-        margin: auto;
-        padding: 20px 0;
-        text-align: justify;
-        font-size: 1.6em;
-        font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-    }
-    
-    button {
-        position: relative;
-        height: 50px;
-        border: none;
-        width: 100px;
-        display: inline-block;
-        color: #FFF;
-        cursor: pointer;
-        margin-right: 0;
-        margin-left: 0;
-        box-sizing: border-box;
-        float: right;
-        background-color: #1471c1;
-        font-size: 1em;
-        font-weight: bold;
-        font-family: Calibri;
-    }
+p {
+    margin: auto;
+    padding: 20px 0;
+    text-align: justify;
+    font-size: 1.6em;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
 
-    button:hover {
-        background-color: #1965a7;
-    }
+button {
+    position: relative;
+    width: 100%;
+    border-radius: 0;
 
-    button:focus {
-        outline: none;
+    span {
+        margin-left: 10px;
+        margin-right: 10px;
     }
+}
 </style>

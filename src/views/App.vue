@@ -1,14 +1,11 @@
-<template>
-    <div>
-        <transition name="slide-modal">
-            <feedback-modal v-if="modal_enabled" />
-        </transition>
-        <div class="blur-transition" :class="{'blurred': modal_enabled}">
-            <nav-bar :views="views" />
-            <component :is="activeView" />
-            <notifier />
-        </div>
-    </div>
+<template lang="pug">
+    .base
+        transition(name="slide-modal")
+            feedback-modal(v-if="modal_enabled")
+        .blur-transition(:class="{'blurred': modal_enabled}")
+            nav-bar(:views="views")
+            component(:is="activeView")
+            notifier
 </template>
 
 <script>
@@ -39,7 +36,7 @@ export default {
         "feedback-modal": FeedbackModal,
         notifier: Notifier
     },
-    data: function() {
+    data: function () {
         return {
             views: [
                 { component: "problem-view", title: "PROBLEM" },
@@ -53,13 +50,13 @@ export default {
         }
     },
     computed: {
-        activeViewID: function() {
+        activeViewID: function () {
             return this.$store.getters["views/getActiveView"]
         },
-        activeView: function() {
+        activeView: function () {
             return this.views[this.activeViewID].component
         },
-        modal_enabled: function() {
+        modal_enabled: function () {
             return this.$store.getters["views/isModalEnabled"]
         }
     }

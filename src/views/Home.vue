@@ -5,9 +5,9 @@
                 v-btn(text x-large @click="$vuetify.goTo('#app')")
                     v-img.logo(src="@/assets/logoai.svg" contain)
                 .links(v-if="!$vuetify.breakpoint.xs")
-                    v-btn.right(text x-large @click="$vuetify.goTo('#about')") ABOUT
-                    v-btn.right(text x-large @click="$vuetify.goTo('#feedback')") FEEDBACK
-                    v-btn.right(text x-large @click="$vuetify.goTo('#research')") RESEARCH
+                    v-btn(text x-large @click="$vuetify.goTo('#about')") ABOUT
+                    v-btn(text x-large @click="$vuetify.goTo('#feedback')") FEEDBACK
+                    v-btn(text x-large @click="$vuetify.goTo('#research')") RESEARCH
                 .links.burger(v-else)
                     v-btn.right(text rounded x-large)
                         v-icon mdi-menu

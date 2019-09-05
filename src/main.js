@@ -27,9 +27,9 @@ import { Drop } from 'vue-drag-drop'
 Vue.component('drop', Drop)
 
 /* Drag & Drop */
-import { Container, Draggable } from "vue-smooth-dnd"
-Vue.component('container', Container)
-Vue.component('draggable', Draggable)
+//import { Container, Draggable } from "vue-smooth-dnd"
+//Vue.component('container', Container)
+//Vue.component('draggable', Draggable)
 
 /* Slider */
 import vueSlider from 'vue-slider-component'
@@ -43,13 +43,17 @@ Vue.use(VueGoogleCharts)
 import TweenMax from "gsap/TweenMax"
 Object.defineProperty(Vue.prototype, '$tween', { value: TweenMax })
 
-/* Nif */
+/* Notification */
 import Snotify, { SnotifyPosition } from 'vue-snotify'
 const options = {
     toast: {
         position: SnotifyPosition.leftBottom
     }
 }
+
+/* Draggable */
+import shopify from '@shopify/draggable'
+Vue.prototype.$shopify = shopify
 
 Vue.use(Snotify, options)
 
