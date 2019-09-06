@@ -21,6 +21,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.container {
+    max-width: 90%;
+}
 .about {
     padding-top: 12.5vh;
     padding-bottom: 12.5vh;

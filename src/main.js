@@ -52,7 +52,7 @@ const options = {
 }
 
 /* Draggable */
-import shopify from '@shopify/draggable'
+import * as shopify from '@shopify/draggable';
 Vue.prototype.$shopify = shopify
 
 Vue.use(Snotify, options)

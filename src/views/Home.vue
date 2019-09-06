@@ -59,6 +59,7 @@ export default {
 .container {
     padding-top: 0;
     padding-bottom: 0;
+    max-width: 90%;
 
     .logo {
         width: 4.5em;

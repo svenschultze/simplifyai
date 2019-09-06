@@ -48,7 +48,6 @@
 
 <script>
 import Info from '../common/Info.vue'
-
 import ProblemClassificationDemo from './children/ProblemClassificationDemo.vue'
 
 export default {
@@ -81,7 +80,6 @@ export default {
     font-size: 1.3em;
     padding: 20px 50px;
 }
-
 
 .demo-overlay {
     background-color: rgb(45, 63, 179);

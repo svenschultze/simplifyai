@@ -3,15 +3,8 @@
         .links(v-for="(view, index) in views")
             v-btn.arrow(v-if="index" dark icon x-large @click="activate(index)")
                 v-icon mdi-chevron-right
-            v-btn(text dark x-large @click="activate(index)" :class="{active:(activeViewID===index)}") {{ view.title }}
+            v-btn(text dark x-large @click="activate(index)" activate-class="active" :class="{active:(activeViewID===index)}") {{ view.title }}
         v-btn.feedback(text dark x-large @click="enableModal") FEEDBACK
-
-    // .base.navigation
-        .steps(v-for="(view, index) in views")
-            RightArrow(v-if="index" @activate="activate(index)" :disabled="(navigationSkill + 1 < index)")
-            Link(@activate="activate(index)" :disabled="(navigationSkill + 1 < index)" :class="{active:(activeViewID===index)}")
-            | {{ view.title }}
-
 </template>
 
 <script>
@@ -72,6 +65,7 @@ export default {
             &.active {
                 background: rgb(68, 91, 224);
             }
+
         }
     }
 

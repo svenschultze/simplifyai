@@ -18,6 +18,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container {
+    max-width: 90%;
+}
 .footer-card {
     width: 100%;
     background: linear-gradient(

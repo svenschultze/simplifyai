@@ -13,9 +13,18 @@
             text(x='939.137px' y='287.784px' style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:26.281px;fill:#1471c1;") Cats
         filter#dropshadow(height='130%')
             fedropshadow(dx='3' dy='6' stddeviation='5' flood-color='#0a3254' flood-opacity='0.1')
-    .drag-dog
-        img(ref='hellothere' v-if='!dogDropped' v-once src='@/assets/dog.jpg')
-        svg(v-else='' width='100%' height='100%' viewbox='0 0 100 100')
+
+    div(ref="containerdog")
+        v-card.dropzone-dog.draggable-dropzone--occupied.drag-dog
+                .item
+                    v-img(src="@/assets/dog.jpg")
+        v-card.dropzone-dog.drop-dog
+
+    div(ref="containercat")
+        v-card.dropzone-cat.draggable-dropzone--occupied.drag-cat
+                .item
+                    v-img(src="@/assets/cat.jpg")
+        v-card.dropzone-cat.drop-cat
 </template>
 
 <script>
@@ -27,75 +36,96 @@ export default {
             catDropped: false
         }
     },
-    methods: {
-        handleDropDog: function (dropResult) {
-            let { removedIndex, addedIndex, payload, element } = dropResult;
-            if (addedIndex != null)
-                this.dogDropped = true
-        },
-        handleDropCat: function (dropResult) {
-            let { removedIndex, addedIndex, payload, element } = dropResult;
-            if (addedIndex != null)
-                this.catDropped = true
-        },
-        shouldAnimateDrop: function () {
-            return false
-        }
-    },
-    created() {
-        let droppable = new this.$shopify.Droppable(this.$refs.hellothere, {
-            draggable: '.Block--isDraggable',
-            dropzone: '.BlockWrapper--isDropzone',
-            mirror: {
-                constrainDimensions: true,
-            },
-        })
+    mounted() {
+        const dog = new this.$shopify.Droppable(this.$refs.containerdog, {
+            draggable: '.item',
+            dropzone: '.dropzone-dog',
+            plugins: [this.$shopify.Plugins.Snappable]
+        });
 
-        let droppableOrigin
+        dog.on('droppable:dropped', () => console.log('droppable:dropped'));
+        dog.on('droppable:returned', () => console.log('droppable:returned'));
 
-        // --- Draggable events --- //
-        droppable.on('drag:start', (evt) => {
-            droppableOrigin = evt.originalSource.parentNode.dataset.dropzone
-        })
+        const cat = new this.$shopify.Droppable(this.$refs.containercat, {
+            draggable: '.item',
+            dropzone: '.dropzone-cat',
+            plugins: [this.$shopify.Plugins.Snappable]
+        });
 
-        droppable.on('droppable:dropped', (evt) => {
-            if (droppableOrigin !== evt.dropzone.dataset.dropzone) {
-                evt.cancel()
-            }
-        })
+        cat.on('droppable:dropped', () => console.log('droppable:dropped'));
+        cat.on('droppable:returned', () => console.log('droppable:returned'));
     }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.draggable-source--is-dragging {
+    margin-bottom: 50px;
+    top: -100px;
+    display: block;
+    transform: scale(1.2);
+}
+
+.draggable-mirror {
+    box-shadow: 0 10px 4px #000;
+}
+
+.draggable--original{
+    display: none
+}
+
+.item {
+    top: 0%;
+    position: relative;
+    background: white;
+    z-index: 2;
+    cursor: move;
+    width: 6vw;
+    height: 6vw;
+    transition: box-shadow 0.3s, transform 1s;
+}
+
+.dropzone-dog {
+    width: 6vw;
+    height: 6vw;
+    margin: 20px;
+}
+
+.dropzone-cat {
+    width: 6vw;
+    height: 6vw;
+    margin: 20px;
+}
+
 .demo {
     position: relative;
+    height: 300px;
 }
 
 .drag-dog {
     position: absolute;
     top: 55%;
-    width: 8%;
+    width: 6vw;
     left: 29%;
 }
 
 .drag-cat {
     position: absolute;
     top: 40%;
-    width: 8%;
+    width: 6vw;
     left: 14%;
 }
 
 .drop-dog {
     position: absolute;
-    width: 8%;
+    width: 6vw;
     top: 14.5%;
     left: 77.5%;
 }
 
 .drop-cat {
     position: absolute;
-    width: 8%;
+    width: 6vw;
     top: 57.5%;
     left: 77.5%;
 }

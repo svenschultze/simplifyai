@@ -30,7 +30,7 @@ export default new Vuex.Store({
     plugins: [
         imageLoader,
         modelBuilder,
-        createSocketioPlugin('http://dev.sschultze.de:8801/training')
+        createSocketioPlugin('http://dev.sschultze.de:4444/training')
         //createPersistedState()
     ]
 })

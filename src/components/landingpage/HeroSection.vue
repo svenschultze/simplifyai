@@ -7,7 +7,7 @@
                     Tinker with Neural Networks without any coding experience
                     to learn about the basic concepts of Deep Learning in a practical way.
                 .calltoaction
-                    v-btn.start(rounded large) START NOW
+                    v-btn.start(rounded large @click="$router.push('/app')") START NOW
                     v-btn.learn(rounded large @click="$vuetify.goTo('#about')") LEARN MORE
 </template>
 
@@ -18,6 +18,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.container {
+    max-width: 90%;
+}
 div.hero {
     background: url(~@/assets/landingpage.svg),
         radial-gradient(circle, #2040ae, #090c50);
